@@ -6,7 +6,7 @@
 /*   By: csantos- <csantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:00:53 by csantos-          #+#    #+#             */
-/*   Updated: 2021/07/25 16:45:50 by csantos-         ###   ########.fr       */
+/*   Updated: 2021/07/25 17:30:03 by csantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check_message(int signum)
 {
 	(void)signum;
 	g_mess_received = 1;
-	write(1, "\033[32mYour message was sent successfully!\033[0m\n", 36);
+	write(1, "Your message was sent successfully!\n", 36);
 }
 
 pid_t	get_numid(char *arg)
@@ -67,14 +67,14 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		write(1, "\033[31mError: Invalid number of arguments.\033[0m\n", 36);
-		write(1, "\033[33mTry: ./client + ID number + message\033[0m\n", 50);
+		write(1, "Error: Invalid number of arguments.\n", 36);
+		write(1, "Try: ./client_server + ID number + message\n", 43);
 		return (1);
 	}
 	num_id = get_numid(argv[1]);
 	if (num_id <= 1)
 	{
-		write(1, "\033[31mError: Invalid server ID number.\033[0m\n", 33);
+		write(1, "Error: Invalid server ID number.\n", 33);
 		return (2);
 	}
 	g_mess_received = 0;
@@ -85,6 +85,6 @@ int	main(int argc, char **argv)
 		sleep(5);
 	if (g_mess_received == 1)
 		return (0);
-	write(1, "\033[31mError: Unable to connect with server.\033[0m\n", 38);
+	write(1, "Error: Unable to connect with server.\n", 38);
 	return (1);
 }

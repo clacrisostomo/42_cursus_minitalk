@@ -6,11 +6,9 @@
 #    By: csantos- <csantos-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/25 14:37:45 by csantos-          #+#    #+#              #
-#    Updated: 2021/07/25 16:43:49 by csantos-         ###   ########.fr        #
+#    Updated: 2021/07/25 17:22:24 by csantos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-
 
 NAME_SERVER = server
 NAME_CLIENT = client
@@ -51,17 +49,17 @@ $(NAME_CLIENT): $(CLIENT_OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME_CLIENT) $(CLIENT_OBJ)
 	@echo "Compiling client.........................\033[32m[OK!]\033[0m\n"
 
-bonus: $(SERVER_BONUS) $(CLIENT_BONUS) $(INCLUDE_BONUS)
+bonus: $(BONUS_SERVER) $(BONUS_CLIENT) $(INCLUDE_BONUS)
 
-$(SERVER_BONUS): $(SERVER_OBJ_BONUS)
+$(BONUS_SERVER): $(SERVER_OBJ_BONUS)
 	@$(CC) $(CFLAGS) -o $(BONUS_SERVER) $(SERVER_OBJ_BONUS)
 	@echo "Compiling Bonus server.........................\033[32m[OK!]\033[0m\n"
-	@echo "\033[32m Welcome to Minitalk!\0330m\n"
+	@echo "\033[32m Welcome to Minitalk Bonus!\033[0m\n"
 	@echo "\033[34m Run ./server\033[0m\n"
 	@echo "\033[34m Then run ./client in another terminal\033[0m\n"
 
-$(CLIENT_BONUS): $(CLIENT_OBJ_BONUS)
-	@$(CC) $(CFLAGS) -o $(CLIENT_BONUS) $(CLIENT_OBJ_BONUS)
+$(BONUS_CLIENT): $(CLIENT_OBJ_BONUS)
+	@$(CC) $(CFLAGS) -o $(BONUS_CLIENT) $(CLIENT_OBJ_BONUS)
 	@echo "Compiling client.........................\033[32m[OK!]\033[0m\n"
 
 git:
@@ -74,7 +72,7 @@ clean:
 	@rm -f $(SERVER_OBJ) $(CLIENT_OBJ) $(SERVER_OBJ_BONUS) $(CLIENT_OBJ_BONUS)
 
 fclean: clean
-	@rm -f $(NAME_SERVER) $(NAME_CLIENT) $(SERVER_BONUS) $(CLIENT_BONUS)
+	@rm -f $(NAME_SERVER) $(NAME_CLIENT) $(BONUS_SERVER) $(BONUS_CLIENT)
 
 re: fclean all
 
