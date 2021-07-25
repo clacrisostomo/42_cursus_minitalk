@@ -6,7 +6,7 @@
 /*   By: csantos- <csantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:00:53 by csantos-          #+#    #+#             */
-/*   Updated: 2021/07/25 16:23:56 by csantos-         ###   ########.fr       */
+/*   Updated: 2021/07/25 16:45:50 by csantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ int	main(int argc, char **argv)
 		return (2);
 	}
 	g_mess_received = 0;
-	if (signal(SIGUSR1, check_message) == SIG_ERR)
-		|| send_message(argv[2], num_id) != 0
+	if (signal(SIGUSR1, check_message) == SIG_ERR
+		|| send_message(argv[2], num_id) != 0)
 		return (1);
 	if (g_mess_received == 0)
 		sleep(5);
 	if (g_mess_received == 1)
 		return (0);
 	write(1, "\033[31mError: Unable to connect with server.\033[0m\n", 38);
-	rerturn (1);
+	return (1);
 }

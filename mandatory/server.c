@@ -6,7 +6,7 @@
 /*   By: csantos- <csantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 22:44:12 by csantos-          #+#    #+#             */
-/*   Updated: 2021/07/25 15:47:45 by csantos-         ###   ########.fr       */
+/*   Updated: 2021/07/25 16:45:36 by csantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	sig_action(int signum, siginfo_t *info, void *ucontext)
 	receive_message(signum == SIGUSR2, info->si_pid);
 }
 
-void	setup_handlers(void)
+int	setup_handlers(void)
 {
 	struct sigaction	act;
 

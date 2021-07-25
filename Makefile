@@ -6,7 +6,7 @@
 #    By: csantos- <csantos-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/25 14:37:45 by csantos-          #+#    #+#              #
-#    Updated: 2021/07/25 14:37:58 by csantos-         ###   ########.fr        #
+#    Updated: 2021/07/25 16:43:49 by csantos-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ all: $(NAME_SERVER) $(NAME_CLIENT) $(INCLUDE)
 $(NAME_SERVER): $(SERVER_OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME_SERVER) $(SERVER_OBJ)
 	@echo "Compiling server.........................\033[32m[OK!]\033[0m\n"
-	@echo "\033[32m Welcome to Minitalk!\0330m\n"
+	@echo "\033[32m Welcome to Minitalk!\033[0m\n"
 	@echo "\033[34m Run ./server\033[0m\n"
 	@echo "\033[34m Then run ./client in another terminal\033[0m\n"
 
